@@ -1,0 +1,11 @@
+# Use the official WildFly image
+FROM jboss/wildfly:latest
+
+# Copy the WAR file to the standalone deployments directory
+# Use the correct WAR file name based on the project structure
+COPY target/ejb-demo-1.0-SNAPSHOT.war /opt/jboss/wildfly/standalone/deployments/
+
+# Expose the default WildFly HTTP port
+EXPOSE 8080
+
+# The base image's default CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"] should handle startup 
