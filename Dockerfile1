@@ -1,0 +1,16 @@
+# Use a Payara 5 image
+FROM payara/server-full:5.2022.5-jdk11
+
+# Copy the WAR file to the autodeploy directory
+# Payara 5 path structure
+COPY target/EJB-SESSIONBean-1.0-SNAPSHOT.war /opt/payara5/glassfish/domains/domain1/autodeploy/ejb-demo.war
+
+# Payara/Glassfish default ports
+# 8080: HTTP Listener
+# 4848: HTTPS Admin Listener
+# 8181: HTTPS Listener
+EXPOSE 8080 4848 8181
+
+# Optional: Add any required Payara setup commands here if needed
+
+# The default command starts the domain 
